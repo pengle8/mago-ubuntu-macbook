@@ -1,0 +1,25 @@
+services:
+  mago-ubuntu-macbook:
+    image: mago-ubuntu-macbook
+    container_name: mago-ubuntu-macbook
+    hostname: mago-ubuntu-macbook
+    user: "${UID}:${GID}"
+    environment:
+      LC_ALL: C.UTF-8
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        UID: "${UID}"
+        GID: "${GID}"
+        USER: "${USER}"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /Users/galois/workspace:/home/galois/workspace
+    working_dir: /home/galois
+    stdin_open: true
+    cap_add:
+      - SYS_ADMIN
+    entrypoint: ["bash"]
