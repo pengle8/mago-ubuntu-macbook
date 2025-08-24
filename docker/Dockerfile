@@ -61,6 +61,9 @@ RUN echo "${USER}:${USER}" | chpasswd && \
 
 RUN sudo rm /var/lib/dpkg/statoverride
 
+RUN usermod -aG docker ${USER}
+RUN chmod 660 /var/run/docker.sock || true
+
 WORKDIR /usr/bin
 RUN ln -sf python3.10 python3
 RUN ln -sf python3.10-config python3-config
