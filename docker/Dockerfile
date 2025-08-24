@@ -20,6 +20,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive $APT_INSTALL \
         vim && \
     rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update && apt-get install -y docker.io
+
 RUN apt-get update && \
     apt-get install -y software-properties-common && \
     add-apt-repository ppa:deadsnakes/ppa && \

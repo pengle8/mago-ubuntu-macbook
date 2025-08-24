@@ -3,7 +3,7 @@ services:
     image: mago-ubuntu-macbook
     container_name: mago-ubuntu-macbook
     hostname: mago-ubuntu-macbook
-    user: "${UID}:${GID}"
+    user: root
     environment:
       LC_ALL: C.UTF-8
     tty: true
